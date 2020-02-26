@@ -17,6 +17,7 @@ class List
 		bool isEmpty();
 		int getLength();
 		void insertAt(int position, int value);
+		void remove(int value);
 };
 
 #endif

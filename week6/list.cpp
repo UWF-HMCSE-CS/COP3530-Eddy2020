@@ -43,19 +43,58 @@ void List::insertAt(int position, int value)
 	if(position == 0)
 	{
 		this->prepend(value);
+		return;
 	}
 
 	if(position == this->getLength())
 	{
 		this->append(value);
+		return;
 	}
 
 
 	Node* current = this->head;
-	while(current != )
+	int currentPosition = 0;
+	while(currentPosition != position - 1)
 	{
+		currentPosition++;
 		current = current->getNext();
 	}
+
+	Node* newNode = new Node(value);
+	newNode->setNext(current->getNext());
+	current->setNext(newNode);
+
+	this->length++;
+}
+
+void List::remove(int value)
+{
+	if(this->isEmpty())
+		return;
+
+	Node* nodeToRemove;
+	if(this->head->getValue() == value)
+	{
+		nodeToRemove = this->head;
+		this->head = this->head->getNext();
+	}
+	else
+	{
+		Node* current = this->head;
+		if(current->getNext() == nullptr)
+			return;
+
+		while(current->getNext() != nullptr && current->getNext()->getValue() != value)
+		{
+			current = current->getNext();
+		}
+			
+		nodeToRemove = current->getNext();
+		current->setNext(nodeToRemove->getNext());
+	}
+	delete nodeToRemove;
+	this->length--;
 }
 
 int List::getLength()
