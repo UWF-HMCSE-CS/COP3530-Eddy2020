@@ -1,0 +1,8 @@
+testMaze.txt
+E
+E
+W
+W
+S
+E
+E
