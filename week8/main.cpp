@@ -7,7 +7,7 @@ void insertionSort(int *unsortedArray)
 	for(int i = 0; i < 5; i++)
 	{
 		int a = i;
-		while(unsortedArray[a] < unsortedArray[a - 1])
+		while(a > 0 && unsortedArray[a] < unsortedArray[a - 1])
 		{
 			int temp = unsortedArray[a];
 			unsortedArray[a] = unsortedArray[a - 1];
