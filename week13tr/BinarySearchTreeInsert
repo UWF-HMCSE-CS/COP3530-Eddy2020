@@ -1,0 +1,39 @@
+BSTInsert(int key)
+{
+	TreeNode* newNode = new TreeNode(key);
+	if(root == nullptr)
+	{
+		root = newNode;
+		return;
+	}
+	
+	TreeNode* currentNode = root;
+
+	while(currentNode != nullptr)
+	{
+		if(key <= currentNode)
+		{
+			if(currentNode->leftChild == nullptr)
+			{
+				currentNode->leftChild = newNode;
+				return;
+			}
+			else
+			{
+				currentNode = currentNode->leftChild;
+			}
+		}
+		else
+		{
+			if(currentNode->rightChild == nullptr)
+			{
+				currentNode->rightChild = newNode;
+				return;
+			}
+			else
+			{
+				currentNode = currentNode->rightChild;
+			}
+		}
+	}
+}
